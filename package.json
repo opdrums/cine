@@ -1,0 +1,22 @@
+{
+  "name": "cinemark",
+  "version": "1.0.0",
+  "description": "test cine",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "cy.open": "cypress open",
+    "cy:run:chrome": "cypress run -b chrome",
+    "cy:run:firefox": "cypress run -b firefox",
+    "cypress:run": "cypress run"
+  },
+  "keywords": [
+    "cine"
+  ],
+  "author": "omar",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.13.0",
+    "cypress-xpath": "^2.0.1"
+  }
+}
