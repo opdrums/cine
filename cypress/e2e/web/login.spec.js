@@ -11,8 +11,8 @@ describe('es una prueba a cinemark',()=>{
             date= dateFixture;
             web.openUrl(date.baseUrl)
             web.elementVisibleClick(".ant-modal-close-x")
-            web.existElmPage(".primary-nav-bar__logo")
-            web.simulateLocation()
+            web.visibleElmPage(".primary-nav-bar__logo")
+            web.simulateLocation(4.687955826896409, -74.10092888765324)
         })
 
     })
@@ -27,27 +27,25 @@ describe('es una prueba a cinemark',()=>{
         //selecciona el horario de la funcion
         web.valedatelenghtelm(".jsx-1960175725", 1)
         web.clickELemEq("//*[@id='__next']/div[2]/div[3]/section/div[1]/div/div/div/div/div[1]/div/div", 'button', 0)
-        web.containsExistClick("21:25")
+        web.elementVisibleClick(".theaters-detail__container > :nth-child(1)")
         web.containsExistClick("Confirmar")
-
+               
         //selecciona la cantidad de sillas
         web.waitExplicity()
         web.windowInterviewALert('.jsx-258256937')
         web.elementVisibleClick(':nth-child(2) > :nth-child(3) > .jsx-3706725137 > .select-seat-format > .ant-select-selection > .ant-select-selection__rendered')
-        web.selectElemList('.ant-select-dropdown-menu > :not(.ant-select-dropdown-menu-item-disabled)', 2)
+        web.selectElemList('.ant-select-dropdown-menu > :not(.ant-select-dropdown-menu-item-disabled)', 1)
         web.elementVisibleClick('.jsx-1369409061 > .ant-btn')
         
         //Seleciona la silla
-        web.containsExistClick('F13')
-        web.containsExistClick('F12')
+        web.containsExistClick('M19')
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
         web.elementVisibleClick('.d-flex > .primary')
 
         //selecciona la comida
         web.waitExplicity()
-        web.elementVisibleClick('#Crispeta > .concessions-block__container > .concessions-block__list > :nth-child(1) > .candy-store__item > .candy-store__content > .candy-store__info > :nth-child(1) > .candy-store__actions > .candy-store-controls > .candy-store__btn-control--left-space')
+        web.clickELementMultiplex("//div/div/div[1]/div/div[3]/div[2]/div/div/div[2]/button[2]/span/img")
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
-        web.elementVisibleClick("#__next > div:nth-child(2) > div.jsx-1369409061.bottom-bar > div.jsx-1369409061.shopping-cart > div.jsx-1369409061.shopping-cart__price > div.sc-dPwPAC.jqOaw > button > svg")
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
         
         //formulario de registro
@@ -65,8 +63,14 @@ describe('es una prueba a cinemark',()=>{
         web.fielTextXpatch('//*[@id="payment_creditCard.securityCode"]', date.cvv) 
         web.clickInvokeXpatch('//*[@id="payment_creditCard.installments"]/div/div')
         web.selectElemList('.ant-select-dropdown-menu > :not(.ant-select-dropdown-menu-item-disabled)', 2)
-        //web.clickInvokeXpatch('//*[@id="payment_creditCard.isSaveCard"]')
-        web.elementVisibleClick('#payment_agreement')
-        //web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
+        web.clickCheckBox()
+        web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
+        web.containsExistClick("aceptar")
+
+        //validar el qr
+        web.waitExplicity()
+        web.waitExplicity()
+        web.elementExist('.container-information__block > .text-center')
+        web.screenshot()
     });
 })
