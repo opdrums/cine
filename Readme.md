@@ -1,11 +1,11 @@
 pasos para instalar y configurar:
 
-1: crear un carpeta donde va tu proyecto
-2: comando npm init --inicializar el proyecto
-3: npm install cypress --save-dev
-4: npx cypress open -- abrir crypress y configurar
-5: npm install -D cypress-xpath   
-6: configurar el proyecto en git hub
+* crear un carpeta donde va tu proyecto
+* comando npm init --inicializar el proyecto
+* npm install cypress --save-dev
+* npx cypress open -- abrir crypress y configurar
+* npm install -D cypress-xpath   
+* configurar el proyecto en git hub
 
 librerias externas:
 * si quieres crear el comando xpath https://www.npmjs.com/package/cypress-xpath
