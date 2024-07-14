@@ -2,9 +2,11 @@ import webBasePage from "../../pages/webBasePage";
 
 const web = new webBasePage
 
-describe('es una prueba a cinemark',()=>{
+describe('es una prueba a cinemark web',()=>{
 
     let date;
+    let selectChair = "q23"
+    let time = 5000
 
     beforeEach(function(){
         cy.fixture('login').then(dateFixture =>{
@@ -17,7 +19,7 @@ describe('es una prueba a cinemark',()=>{
 
     })
 
-    it('login user', () => {
+    it('end to end compra de una funcion de cine', () => {
         //login
         web.containsExistClick("INICIAR SESIÓN")
         web.fielText("#MemberEmail",date.email)
@@ -27,24 +29,25 @@ describe('es una prueba a cinemark',()=>{
         //selecciona el horario de la funcion
         web.valedatelenghtelm(".jsx-1960175725", 1)
         web.clickELemEq("//*[@id='__next']/div[2]/div[3]/section/div[1]/div/div/div/div/div[1]/div/div", 'button', 0)
+        cy.wait(time)
         web.elementVisibleClick(".theaters-detail__container > :nth-child(1)")
         web.containsExistClick("Confirmar")
                
         //selecciona la cantidad de sillas
-        web.waitExplicity()
+        cy.wait(time)
         web.windowInterviewALert('.jsx-258256937')
         web.elementVisibleClick(':nth-child(2) > :nth-child(3) > .jsx-3706725137 > .select-seat-format > .ant-select-selection > .ant-select-selection__rendered')
         web.selectElemList('.ant-select-dropdown-menu > :not(.ant-select-dropdown-menu-item-disabled)', 1)
         web.elementVisibleClick('.jsx-1369409061 > .ant-btn')
         
         //Seleciona la silla
-        web.containsExistClick('M19')
+        web.containsExistClick(selectChair)
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
         web.elementVisibleClick('.d-flex > .primary')
 
         //selecciona la comida
-        web.waitExplicity()
-        web.clickELementMultiplex("//div/div/div[1]/div/div[3]/div[2]/div/div/div[2]/button[2]/span/img")
+        cy.wait(time)
+        web.clickELementMultiplex("//div/div/div[3]/div/div[3]/div[2]/div/div/div[2]/button[2]/span/img")
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
         
@@ -67,10 +70,11 @@ describe('es una prueba a cinemark',()=>{
         web.elementVisibleClick('.bottom-bar__controls > :nth-child(2) > .ant-btn')
         web.containsExistClick("aceptar")
 
-        //validar el qr
-        web.waitExplicity()
-        web.waitExplicity()
-        web.elementExist('.container-information__block > .text-center')
+        //validar el qr   
+        cy.wait(70000)
+        web.elementExist('.container-information__block > .text-center', {setTimeout: 20000})
         web.screenshot()
+        web.containsExistClick("Finalizar")
+        cy.clearCookies();
     });
 })

@@ -8,4 +8,6 @@ module.exports = defineConfig({
     videoCompression:32,
     reporter: 'mochawesome',
   },
+
+  projectId: "9wntks",
 });

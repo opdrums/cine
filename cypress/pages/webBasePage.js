@@ -49,7 +49,7 @@ class webBasePage {
 
     clickELementMultiplex(elm){
         cy.xpath(elm)
-        .should('be.visible')
+        //.should('be.visible')
         .click({multiple:true})
     }
 
@@ -87,10 +87,6 @@ class webBasePage {
         cy.get(elm)
         .should("have.length", numberList)
         .wait(2000)
-    }
-
-    waitExplicity(){
-        cy.wait(10000)
     }
 
     windowInterviewALert(elm){
