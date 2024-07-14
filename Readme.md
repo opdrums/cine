@@ -30,6 +30,7 @@ pasos para correr el proyecto:
 
 Anotaciones adicionales:
 
-* tener presente la variable selectChair la cual es la que selecciona a posicion de la sillas
-* tener presente las validaciones de que la silla fue seleccionada o desactivada puede reventar la app se recomiendar cambiar de forma manual la posicion de la silla
-* Tener presente la carpeta evidence el cual se sube las evidencias
+* tener presente la variable selectChair la cual es la que selecciona a posicion de la sillas.
+* tener presente las validaciones de que la silla fue seleccionada o desactivada puede reventar la app se recomiendar cambiar de forma manual la posicion de la silla.
+* Tener presente la carpeta evidence el cual se sube las evidencias de forma manual.
+* Tener presente que en las carpetas mochawesome-report, videos, screenshot por cada prueba que se corra se genere un reporte de forma automatica.
