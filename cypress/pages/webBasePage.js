@@ -4,20 +4,25 @@ class webBasePage {
         cy.visit(url)
     }
 
-    fielText(elm, text){
+    openMobil(mobil, alto , ancho){
+        cy.viewport(mobil) 
+        cy.viewport(alto, ancho)
+    }
+
+    fillTextField(elm, text){
         cy.get(elm)
         .clear()
         .type(text)
     }
     
-    fielTextXpatch(elm, text){
+    fillTextFieldByXPath(elm, text){
         cy.xpath(elm)
         .invoke('removeClass', 'clase-oculto')
         .should('be.visible')
         .type(text)
     }
-
-    clickInvokeXpatch(elm){
+    
+    clickElementByXPath(elm){
         cy.xpath(elm)
         .invoke('removeClass', 'clase-oculto')
         .should('be.visible')
@@ -28,35 +33,28 @@ class webBasePage {
         cy.screenshot()
     }
 
-    elementVisibleClick(elm){
+    clickElementByGet(elm){
         cy.get(elm)
         .should('be.visible')
         .click()
     }
 
-    selectElemList(elm, indice){
+    clickElementListEq(elm, indice){
         cy.get(elm)
         .eq(indice)
         .click({force:true})
 
     }
 
-    clickELemEq(elm,elmAditional, number){
+    clickElementXpathEq(elm,elmAditional, number){
         cy.xpath(elm).find(elmAditional)
         .eq(number).should('be.visible')
         .click({force:true})
     }
 
-    clickELementMultiplex(elm){
+    clickMultipleElements(elm){
         cy.xpath(elm)
-        //.should('be.visible')
         .click({multiple:true})
-    }
-
-    getElementExistClick(elm){
-        cy.get(elm)
-        .should('exist')
-        .click()
     }
 
     visibleElmPage(elm){
@@ -83,19 +81,19 @@ class webBasePage {
         .should('have.text', text)
     }
 
-    valedatelenghtelm(elm, numberList){
+    validateElementLength(elm, numberList){
         cy.get(elm)
         .should("have.length", numberList)
         .wait(2000)
     }
 
-    windowInterviewALert(elm){
+    dismissAlertIfPresent(elm){
         cy.get(elm).should('be.visible')
         cy.get('body').type('{esc}');
         cy.get(elm).should('not.be.visible');
     }
 
-    elementExist(elm){
+    validateElmExist(elm){
         cy.get(elm).should('exist')
     }
 
