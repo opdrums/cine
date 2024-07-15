@@ -26,7 +26,7 @@ describe('es una prueba a cinemark mobil',()=>{
 
         // Seleccionar horario de función
         mobil.validateElementLength(".jsx-1960175725", 1)
-        mobil.clickElementXpathEq("//*[@id='__next']/div[2]/div[3]/section/div[1]/div/div/div/div/div[1]/div/div", 'button', 0)
+        mobil.clickElementXpathEq("//*[@id='__next']/div[2]/div[3]/section/div[1]/div/div/div/div/div[1]/div/div", 'button', date.selectFilm)
         cy.wait(date.time)
         mobil.clickElementByGet(".theaters-detail__container > :nth-child(1)")
         mobil.containsExistClick("Confirmar")
